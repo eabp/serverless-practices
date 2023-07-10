@@ -9,7 +9,7 @@ provider:
       statements:
         - Effect: Allow
           Action: 'dynamodb:*'
-          Resource: ''
+          Resource: arn:aws:dynamodb:us-east-2:674075795642:table/usersTable
 
 plugins:
   - serverless-offline
