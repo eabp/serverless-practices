@@ -4,12 +4,12 @@ provider:
   name: aws
   runtime: nodejs14.x
   region: us-east-2
-  # iam:
-  #   role:
-  #     statements:
-  #       - Effect: Allow
-  #         Action: 'dynamodb:*'
-  #         Resource: ''
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action: 'dynamodb:*'
+          Resource: ''
 
 plugins:
   - serverless-offline
