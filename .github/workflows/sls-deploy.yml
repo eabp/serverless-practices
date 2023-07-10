@@ -26,5 +26,6 @@ jobs:
       - name: Deploy Lambda
         id: deploy
         run: |
-          npm install -g serverless          
+          npm install -g serverless   
+          npm install       
           serverless deploy
