@@ -33,11 +33,18 @@ custom:
 
 functions:
   get-users:
-    handler: greeting.getUsers
+    handler: getUsers/handler.getUsers
     events:
       - http:
           path: users/{id}
           method: GET
+  create-users:
+    handler: createUsers/handler.createUsers
+    events:
+      - http:
+          path: users
+          method: POST
+
 
 resources:
   Resources:
