@@ -8,12 +8,18 @@ provider:
     role:
       statements:
         - Effect: Allow
-          Action: 'dynamodb:*'
+          Action: "dynamodb:*"
           Resource: arn:aws:dynamodb:us-east-2:674075795642:table/usersTable
 
 plugins:
   - serverless-offline
   - serverless-dynamodb
+
+package: 
+  individually: true
+  patterns:
+    - "!.dynamodb"
+    - "!node_modules"
 
 custom:
   serverless-dynamodb:
@@ -44,7 +50,12 @@ functions:
       - http:
           path: users
           method: POST
-
+  update-users:
+    handler: updateUsers/handler.updateUsers
+    events:
+      - http:
+          path: users/{id}
+          method: PATCH
 
 resources:
   Resources:
@@ -61,4 +72,3 @@ resources:
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
-
