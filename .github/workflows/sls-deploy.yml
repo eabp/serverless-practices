@@ -23,7 +23,7 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-west-2
 
-      - name: Deploy Lambda
+      - name: Installing  dependencies
         if: steps.cached-npm-dependencies.output.cache-hit != 'true'
         run: |
           npm install -g serverless   
