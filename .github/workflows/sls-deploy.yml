@@ -26,10 +26,9 @@ jobs:
       - name: Installing  dependencies
         if: steps.cached-npm-dependencies.output.cache-hit != 'true'
         run: |
-          npm install -g serverless   
           npm install   
 
       - name: Deploy Lambda
         id: deploy
         run: | 
-          serverless deploy
+          npx sls deploy
